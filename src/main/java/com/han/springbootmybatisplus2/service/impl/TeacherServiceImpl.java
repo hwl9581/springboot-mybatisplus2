@@ -47,8 +47,11 @@ public class TeacherServiceImpl implements TeacherService {
 
     @Override
     public Teacher selectOneByCondition(String name,Integer age) {
+
         QueryWrapper<Teacher> queryWrapper = new QueryWrapper<>();
+
         queryWrapper.eq("name",name).gt("age",age);
+
         return teacherMapper.selectOne(queryWrapper);
     }
 }

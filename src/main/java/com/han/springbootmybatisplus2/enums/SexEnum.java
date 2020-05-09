@@ -16,6 +16,7 @@ public enum  SexEnum {
     MALE("男");
 
     //@EnumValue 存储指定字段
+
     @JsonValue
     public String desc;
 

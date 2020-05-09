@@ -31,6 +31,7 @@ public class Teacher {
     private Long id;
 
     private String name;
+
     private Integer age;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")

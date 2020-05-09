@@ -15,4 +15,12 @@ public interface TeacherService {
     int insert(Teacher teacher);
 
     List<Teacher> findAll();
+
+    int delete(Long id);
+
+    int update(Teacher teacher);
+
+    Teacher selectOne(Long id);
+
+    Teacher selectOneByCondition(String name,Integer age);
 }

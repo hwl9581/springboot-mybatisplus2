@@ -4,10 +4,7 @@ import com.han.springbootmybatisplus2.entity.Teacher;
 import com.han.springbootmybatisplus2.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -26,12 +23,14 @@ public class TeacherController {
     @Autowired
     TeacherService teacherService;
 
+
+
     @PostMapping
     @ResponseBody
     public Map<String, Object> insert(Teacher teacher){
         HashMap<String, Object> map = new HashMap<>();
-        int result = teacherService.insert(teacher);
-        map.put("data",result);
+        int save= teacherService.insert(teacher);
+        map.put("data",save);
         return map;
     }
 
@@ -41,6 +40,42 @@ public class TeacherController {
         HashMap<String, Object> map = new HashMap<>();
         List<Teacher> list = teacherService.findAll();
         map.put("msg",list);
+        return map;
+    }
+
+    @DeleteMapping
+    @ResponseBody
+    public Map<String, Object> delete(Long id){
+        HashMap<String, Object> map = new HashMap<>();
+        int result = teacherService.delete(id);
+        map.put("msg",result);
+        return map;
+    }
+
+    @PutMapping
+    @ResponseBody
+    public Map<String, Object> update(Teacher teacher){
+        HashMap<String, Object> map = new HashMap<>();
+        int result = teacherService.update(teacher);
+        map.put("msg",result);
+        return map;
+    }
+
+    @GetMapping("{id}")
+    @ResponseBody
+    public Map<String, Object> selectOne(@PathVariable("id") Long id){
+        HashMap<String, Object> map = new HashMap<>();
+        Teacher teacher = teacherService.selectOne(id);
+        map.put("msg",teacher);
+        return map;
+    }
+
+    @GetMapping("/one")
+    @ResponseBody
+    public Map<String, Object> selectOneByCondition(String name,Integer age){
+        HashMap<String, Object> map = new HashMap<>();
+        Teacher teacher = teacherService.selectOneByCondition(name,age);
+        map.put("msg",teacher);
         return map;
     }
 
