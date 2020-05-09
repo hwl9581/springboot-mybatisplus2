@@ -2,6 +2,8 @@ package com.han.springbootmybatisplus2.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.han.springbootmybatisplus2.entity.Teacher;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 /**
  * @ClassName TeacherMapper

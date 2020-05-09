@@ -6,6 +6,8 @@ import com.han.springbootmybatisplus2.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @ClassName TeacherServiceImpl
  * @Description TODO
@@ -21,5 +23,10 @@ public class TeacherServiceImpl implements TeacherService {
     @Override
     public int insert(Teacher teacher) {
         return teacherMapper.insert(teacher);
+    }
+
+    @Override
+    public List<Teacher> findAll() {
+        return teacherMapper.selectList(null);
     }
 }

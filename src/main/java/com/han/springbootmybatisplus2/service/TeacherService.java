@@ -2,6 +2,8 @@ package com.han.springbootmybatisplus2.service;
 
 import com.han.springbootmybatisplus2.entity.Teacher;
 
+import java.util.List;
+
 /**
  * @ClassName TeacherService
  * @Description TODO
@@ -12,4 +14,5 @@ public interface TeacherService {
 
     int insert(Teacher teacher);
 
+    List<Teacher> findAll();
 }

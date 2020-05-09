@@ -7,8 +7,10 @@ spring:
 mybatis-plus:
   mapper-locations: classpth:mapper/*.xml
   type-aliases-package: com.han.springbootmybatisplus2.entity
+  type-enums-package: com.han.springbootmybatisplus2.enums
   configuration:
     map-underscore-to-camel-case: true
+    default-enum-type-handler: org.apache.ibatis.type.EnumTypeHandler
 logging:
   level:
     com:
